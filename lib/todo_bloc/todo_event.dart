@@ -7,7 +7,7 @@ abstract class TodoEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class TodoStated extends TodoEvent {}
+class TodoStarted extends TodoEvent {}
 
 class AddTodo extends TodoEvent {
   final Todo todo;
