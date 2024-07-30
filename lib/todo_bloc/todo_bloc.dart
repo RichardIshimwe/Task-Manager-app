@@ -25,6 +25,8 @@ class TodoBloc extends HydratedBloc<TodoEvent, TodoState> {
       List<Todo> temp = [];
       temp.addAll(state.todos);
       temp.insert(0, event.todo);
+      print("list of todos: ${state.todos}");
+      print("list of todos in temp: ${temp}");
       emit(state.copyWith(todos: temp, status: TodoStatus.success));
     } catch (e) {
       emit(state.copyWith(status: TodoStatus.error));
@@ -48,7 +50,7 @@ class TodoBloc extends HydratedBloc<TodoEvent, TodoState> {
       emit(state.copyWith(status: TodoStatus.success, todos: state.todos));
     } catch (e) {
       emit(state.copyWith(status: TodoStatus.error));
-    } 
+    }
   }
 
   @override
