@@ -29,8 +29,12 @@ class MainApp extends StatelessWidget {
             secondary: Colors.lightGreen,
             onSecondary: Colors.white),
       ),
-      home: BlocProvider<TodoBloc>(
-        create: (context) => TodoBloc()..add(TodoStarted()),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider<TodoBloc>(
+            create: (context) => TodoBloc()..add(TodoStarted()),
+          ),
+        ],
         child: const HomeScreen(),
       ),
     );
